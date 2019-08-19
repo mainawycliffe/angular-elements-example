@@ -1,7 +1,8 @@
 const fs = require('fs-extra');
 const concat = require('concat');
 
-const savePath = "../js";
+const jsSavePath = "../js";
+const cssSavePath = "../css";
 const buildDir = "./dist/angular-elements";
 
 async function concatJS(version) {
@@ -14,14 +15,14 @@ async function concatJS(version) {
   ];
 
   // concat files
-  await concat(files, `${savePath}/app-${version}.js`);
+  await concat(files, `${jsSavePath}/app-${version}.js`);
 }
 
 (async function build() {
 
 
-  await fs.ensureDir(savePath);
-  await fs.emptyDir(savePath);
+  await fs.ensureDir(jsSavePath);
+  await fs.emptyDir(jsSavePath);
 
   // concat es5 and es6 files
   concatJS("es5") // es5
@@ -29,6 +30,6 @@ async function concatJS(version) {
 
   await fs.copyFile(
     `${buildDir}/styles.css`,
-    `${savePath}/styles.css`
+    `${cssSavePath}/styles.css`
   );
 })();
