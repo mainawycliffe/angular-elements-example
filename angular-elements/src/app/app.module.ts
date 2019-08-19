@@ -8,6 +8,7 @@ import { HelloWorldComponent } from './hello-world/hello-world.component';
   declarations: [AppComponent, HelloWorldComponent],
   imports: [BrowserModule],
   providers: [],
-  bootstrap: [AppComponent]
+  entryComponents: [HelloWorldComponent]
+  // bootstrap: [AppComponent]
 })
 export class AppModule { }
